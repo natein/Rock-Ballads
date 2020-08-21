@@ -1,0 +1,271 @@
+@font-face {
+  font-family: 'Nosifer';
+  src: url('../assets/fonts/Nosifer-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../assets/fonts/OpenSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../assets/fonts/OpenSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'OpenSans', sans-serif;
+  font-size: 18px;   
+}
+
+p,
+span,
+li {
+  color: #fff;
+}
+
+body {
+  background-image: url('../assets/images/scene.jpg');  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;  
+}
+
+h1 span {
+  font-family: 'Nosifer', modern;
+  font-size: 32px;
+  font-weight: normal;
+  letter-spacing: 4px;  
+}
+
+.red {
+  color: red;
+}
+
+.score {
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+}
+
+nav .groups {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  margin-bottom: 15px;
+}
+
+.groups li {
+  display: inline-block;
+  width: calc(100%/6);
+  padding: 12px 0;
+  background-color: teal;
+  text-align: center;
+}
+
+.groups .selected {
+  background-color: #00b5b6;
+}
+
+.groups li:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.groups li:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 240px;
+  border-radius: 5px;
+  border: 1px solid #666666;
+  background-color: rgba(22, 22, 22, 0.8);
+  margin-bottom: 15px;
+}
+
+.question_image,
+.details_image {
+  float: left;
+  width: 282px;
+  height: 202px;
+  margin-left: 15px;
+  border-radius: 10px;
+  border: 1px solid #666666;
+}
+
+.details_image {
+  margin: 0 15px 15px 0;
+}
+
+.details_image img,
+.question_image img {
+  border-radius: 10px;
+}
+
+.question_nameplayer {  
+  width: calc(100% - 340px);
+}
+
+.question_band_name {
+  font-size: 36px;
+}
+
+.question_player {
+  height: 150px;
+}
+
+.answersdetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.answers,
+.details {
+  width: calc(50% - 8px);
+  height: 420px;
+  border-radius: 5px;
+  background-color: rgba(22, 22, 22, 0.8);
+}
+
+.answers_bands_name li {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;  
+  list-style: none;
+  border: 1px solid #666666;
+  width: 100%;
+  height: 70px;  
+}
+
+.answers_bands_name li:hover {
+  background-color: grey;
+}
+
+.answers_bands_name li div {  
+  width: 15px;
+  height: 15px;
+  margin-left: 40px;
+  border-radius: 50%;
+}
+
+.answers_bands_name li span {
+  margin-left: 40px;
+}
+
+.answers_bands_name li div.correct {
+  background-color: #00b5b6;
+}
+
+.answers_bands_name li div.wrong {
+  background-color: red;
+}
+
+.answers_bands_name li div.noanswer {
+  background-color: #666666;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #666666;
+}
+
+.details_container {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  overflow: hidden;
+}
+
+.details_band {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: #00b5b6;
+}
+
+.details_title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.details_description {
+  font-size: 16px;
+  line-height: 135%;
+}
+
+.results, .congrats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(22, 22, 22, 0.8);
+  height: 500px;
+  text-align: center;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 0 40px;
+}
+
+.results h1 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.results p {
+  font-size: 24px;
+}
+
+.congrats {
+  height: 800px;
+}
+
+.btn_container {
+  width: 100%;
+}
+
+.next_btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;  
+  height: 70px;
+  border: 1px solid #666666;
+  border-radius: 5px;
+  background-color: teal;  
+}
+
+.next_btn span {
+  font-size: 24px;
+}
+
+.disabled {
+  cursor: default;
+  background-color: rgba(22, 22, 22, 0.8);
+}
+
+.toggle-play-button {
+  background-color: red !important;
+}
