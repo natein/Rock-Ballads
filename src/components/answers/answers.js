@@ -11,40 +11,39 @@ export class Answers extends Component {
     }
 
     handleClick(evt) {
+        
         const MAX_SCORE = 5;
-        const MAX_LEVEL = 6;
         const {
             addScore,
             indicators,
             isGuessed,
-            level,
             rightAnswer,
-            setFinished,
             setIndicator,
             setGuessed,
             setSelected,
+            clearStopQuestionPlayer,
         } = this.props;
 
         let elem = evt.target;
         if (elem.tagName === 'DIV' || elem.tagName === 'SPAN') {
             elem = elem.parentElement;
         }
+        if(!elem.dataset.id) return;
         setSelected(elem.dataset.id);
 
         if (!isGuessed) {
             if (rightAnswer === elem.lastChild.outerText) {
                 new Audio(soundCorrect).play();
                 setIndicator(elem.dataset.idx, 2);
-                setGuessed();
+                setGuessed();                
                 addScore(MAX_SCORE - Answers.countErrors(indicators));
-                if (level === MAX_LEVEL) {
-                    setFinished();
-                }
             } else {
                 new Audio(soundError).play();
                 setIndicator(elem.dataset.idx, 1);
             }
-        }
+        } else {
+            clearStopQuestionPlayer();
+        }       
     }
 
     render() {
@@ -81,9 +80,7 @@ Answers.propTypes = {
     setIndicator: PropTypes.func,
     setGuessed: PropTypes.func,
     setSelected: PropTypes.func,
-    setFinished: PropTypes.func,
     addScore: PropTypes.func,
-    level: PropTypes.number,
     rightAnswer: PropTypes.string,
 };
 
@@ -94,8 +91,6 @@ Answers.defaultProps = {
     setIndicator: '',
     setGuessed: '',
     setSelected: '',
-    setFinished: '',
     addScore: '',
-    level: 1,
     rightAnswer: '',
 };

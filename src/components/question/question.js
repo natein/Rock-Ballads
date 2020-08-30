@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player'
+
+import {Player} from '../player/player';
 
 export class Question extends Component {
     render() {
-        const { isGuessed, level, curBallad } = this.props;
+        const { isGuessed, stopQuestionPlayer, level, curBallad } = this.props;
         const { id, name } = curBallad;
         const src = require(`../../assets/images/level${level}/${id}.jpg`);
-        const audioSrc = require(`../../assets/audio/level${level}/${id}.mp3`);
+        const audioSrc = require(`../../assets/audio/level${level}/0${id}.mp3`);
         const srcDefault = require('../../assets/images/default.jpg');
 
         const imgSrc = (isGuessed) ? src : srcDefault;
         const bandName = (isGuessed) ? name : '******';
-        
+        const stopped = isGuessed === true && stopQuestionPlayer === true;
+
         return (
             <section className="question">
                 <div className="question_image">
@@ -19,16 +21,9 @@ export class Question extends Component {
                 </div>
                 <div className="question_nameplayer">
                     <p className="question_band_name">{bandName}</p>
-                    <AudioPlayer
-                        layout="horizontal-reverse"
+                    <Player 
                         src={audioSrc}
-                        showDownloadProgress={false}
-                        showJumpControls={false}
-                        autoPlayAfterSrcChange = {false}
-                        customControlsSection={[
-                            RHAP_UI.MAIN_CONTROLS,
-                            RHAP_UI.VOLUME_CONTROLS
-                        ]}
+                        isStopped={stopped}
                     />
                 </div>
             </section>

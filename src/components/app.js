@@ -19,6 +19,7 @@ export class App extends Component {
         this.state = {
             isFinished: false,
             isGuessed: false,
+            stopQuestionPlayer: true,
             ballads: Data.rockBallads[0],
             order: Utils.generateRandomArray(6),
             score: 0,
@@ -40,6 +41,7 @@ export class App extends Component {
         console.log(`right answer: ${ballads[rnd].name}`);
         this.setState({
             isGuessed: false,
+            stopQuestionPlayer: true,
             ballads,
             order,
             level,
@@ -50,9 +52,15 @@ export class App extends Component {
     }
 
     handleNextLevel() {
+        const MAX_LEVEL = 6;
         if (this.state.isGuessed) {
             const { level } = this.state;
-            this.nextLevel(level + 1);
+            if (level === MAX_LEVEL) {
+                this.setFinished();
+            }
+            else {
+                this.nextLevel(level + 1);
+            }            
         }
     }
 
@@ -65,6 +73,12 @@ export class App extends Component {
         this.setState({
             isFinished: false,
             score: 0,
+        });
+    }
+
+    clearStopQuestionPlayer() {
+        this.setState({
+            stopQuestionPlayer: false,
         });
     }
 
@@ -99,8 +113,10 @@ export class App extends Component {
     }
 
     render() {
+        const MAX_SCORE = 30;
         const {
-            isFinished, isGuessed, ballads, order, score, level,
+            isFinished, isGuessed, stopQuestionPlayer,
+            ballads, order, score, level,
             question, selected, indicators,
         } = this.state;
         const artists = order.map((elem) => {
@@ -111,7 +127,7 @@ export class App extends Component {
 
         if (isFinished) {
             let control;
-            if (this.state.score === 30) { control = <Congrats handleClickMore={this.handleClickMore.bind(this)} />; } else { control = <Score score={score} handleClickMore={this.handleClickMore.bind(this)} />; }
+            if (this.state.score === MAX_SCORE) { control = <Congrats handleClickMore={this.handleClickMore.bind(this)} />; } else { control = <Score score={score} handleClickMore={this.handleClickMore.bind(this)} />; }
             return (
                 <div className="container">
                     <Header levels={Data.levels} level={level} score={score} />
@@ -128,20 +144,22 @@ export class App extends Component {
             <div className="container">
                 <Header levels={Data.levels} level={level} score={score} />
                 <main>
-                    <Question curBallad={ballads[question]} isGuessed={isGuessed} level={level} />
+                    <Question curBallad={ballads[question]}
+                        isGuessed={isGuessed} level={level}
+                        stopQuestionPlayer={stopQuestionPlayer}
+                    />
                     <div className="answersdetails">
                         <Answers
                             artists={artists}
                             rightAnswer={name}
-                            isGuessed={isGuessed}
-                            level={level}
+                            isGuessed={isGuessed}                            
                             addScore={this.addScore.bind(this)}
                             selected={selected}
                             indicators={indicators}
                             setSelected={this.setSelected.bind(this)}
                             setIndicator={this.setIndicator.bind(this)}
-                            setFinished={this.setFinished.bind(this)}
                             setGuessed={this.setGuessed.bind(this)}
+                            clearStopQuestionPlayer={this.clearStopQuestionPlayer.bind(this)}
                         />
 
                         <Details curBallad={ballads[selected - 1]} selected={selected} level={level} />

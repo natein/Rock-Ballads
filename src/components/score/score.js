@@ -10,7 +10,7 @@ export class Score extends Component {
         return (
             <section className="results">
                 <div className="results_container">
-                    <h1>Поздравляем!</h1>
+                    <h1 className="red">Поздравляем!</h1>
                     <p>
                         <span>Вы прошли викторину и набрали </span>
                         <span>{ score }</span>
