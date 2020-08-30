@@ -1,0 +1,616 @@
+@font-face {
+  font-family: 'Nosifer';
+  src: url('../assets/fonts/Nosifer-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Verona Gothic';
+  src: url('../assets/fonts/Verona-Gothic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../assets/fonts/OpenSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../assets/fonts/OpenSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'OpenSans', sans-serif;
+}
+
+p,
+span,
+li {
+  color: #fff;
+  font-size: 18px;
+}
+
+body {
+  background-image: url('../assets/images/scene.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1210px) {
+  .container {
+    width: 748px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    width: 300px;
+  }
+}
+
+h1 span {
+  font-family: 'Verona Gothic', modern;
+  font-size: 56px;
+  font-weight: normal;
+  letter-spacing: 4px;  
+}
+
+@media only screen and (max-width: 767px) {
+  h1 span {
+    font-size: 36px;
+  }
+}
+
+.red {
+  color: red;
+}
+
+.score {
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+}
+
+nav .groups {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 767px) {
+  nav .groups {
+    flex-wrap: wrap;
+  }
+}
+
+.groups li {
+  display: inline-block;
+  width: calc(100%/6);
+  padding: 12px 0;
+  background-color: teal;
+  text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .groups li {
+    width: calc(100%/3);
+    font-size: 14px;
+  }
+}
+
+.groups .selected {
+  background-color: #00b5b6;
+}
+
+.groups li:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.groups li:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .groups li:first-child {
+    border-radius: 5px 0 0 0;
+  }
+  .groups li:nth-child(3) {
+    border-radius: 0 5px 0 0;
+  }
+  .groups li:nth-child(4) {
+    border-radius: 0 0 0 5px;
+  }
+  .groups li:last-child {
+    border-radius: 0 0 5px 0;
+  }
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #666666;
+  background-color: rgba(22, 22, 22, 0.8);
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .question {
+    flex-direction: columns;
+    flex-wrap: wrap;
+    align-items: space-between;
+  }
+}
+
+.question_image,
+.details_image {
+  float: left;
+  width: 282px;
+  height: 202px;
+  margin: 20px;
+  border-radius: 10px;
+  border: 1px solid #666666;
+}
+
+@media only screen and (max-width: 767px) {
+  .question_image,
+  .details_image {
+    float: none;
+  }
+  .question_image {
+    margin: 8px;
+  }
+}
+
+.details_image {
+  margin: 0 15px 15px 0;
+}
+
+.details_image img,
+.question_image img {
+  border-radius: 10px;
+}
+
+.question_nameplayer {
+  width: calc(100% - 350px);
+  margin-right: 15px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1210px) {
+  .question_nameplayer {  
+    width: calc(100% - 330px);
+    margin-right: 15px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .question_nameplayer {
+    width: 100%;
+  }
+}
+
+.question_band_name {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 0 30px 5px;
+}
+
+@media only screen and (max-width: 767px) {
+  .question_band_name {
+    margin: 5px 0 10px 10px;
+    font-size: 24px;
+  }
+}
+
+.question_player {
+  height: 150px;
+}
+
+.answersdetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .answersdetails {
+    flex-direction: columns;
+    flex-wrap: wrap;
+    align-items: space-between;
+  }
+}
+
+.answers,
+.details {
+  height: 420px;
+  border-radius: 5px;
+  background-color: rgba(22, 22, 22, 0.8);
+}
+
+@media only screen and (max-width: 767px) {
+  .answers {
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .details {
+    height: 580px;
+  }
+}
+
+.answers {
+  width: calc(40% - 4px);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1210px) {
+  .answers {
+    width: calc(35% - 4px);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .answers,
+  .details {
+    margin-bottom: 10px;
+  }
+}
+
+.answers_bands_name li {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  border: 1px solid #666666;
+  width: 100%;
+  height: 70px;
+}
+
+@media only screen and (max-width: 767px) {
+  .answers_bands_name li {
+    height: 50px;
+  }
+}
+
+.answers_bands_name li:first-child {
+    border-radius: 5px 5px 0 0;
+}
+
+.answers_bands_name li:last-child {
+    border-radius: 0 0 5px 5px;
+}
+
+.answers_bands_name li:hover {
+  background-color: grey;
+}
+
+.answers_bands_name li div {
+  width: 15px;
+  height: 15px;
+  margin-left: 40px;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 1210px) {
+  .answers_bands_name li div {
+    width: 12px;
+    height: 12px;
+    margin-left: 20px;
+  }
+}
+
+.answers_bands_name li span {
+  margin-left: 40px;
+}
+
+@media only screen and (max-width: 1210px) {
+  .answers_bands_name li span {
+    margin-left: 20px;
+    font-size: 16px;
+  }
+}
+
+.answers_bands_name li div.correct {
+  background-color: #00b5b6;
+}
+
+.answers_bands_name li div.wrong {
+  background-color: red;
+}
+
+.answers_bands_name li div.noanswer {
+  background-color: #666666;
+}
+
+.details {
+  display: flex;
+  width: calc(60% - 8px);
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #666666;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1210px) {
+  .details {
+    width: calc(75% - 8px);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .details,
+  .answers {
+    width: 100%;
+  }
+}
+
+.details .details_listen_player {
+  text-align: center;
+}
+
+.details_container {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+}
+
+@media only screen and (max-width: 767px) {
+  .details_container {
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+  }
+}
+
+.details_band {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 5px 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .details_band {
+    text-align: center;
+    margin: 0 0 5px 0;
+  }
+}
+
+.details_title {
+  font-size: 20px;
+  margin: 0 0 40px 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .details_title {
+    font-size: 16px;
+    text-align: center;
+    margin: 0 0 9px 0;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1210px) {
+  .details_title {
+    font-size: 16px;
+  }
+}
+
+.details_player {
+  float: left;
+  width: calc(100% - 297px);  
+}
+
+@media only screen and (max-width: 1210px) {
+  .details_player {
+    float: none;
+    width: 100%;
+  }
+}
+
+.details_description {
+  float: left;
+  font-size: 14px;
+  line-height: 135%;
+}
+
+@media only screen and (max-width: 1210px) {
+  .details_description {
+    font-size: 13px;
+    line-height: 130%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .details_description {
+    margin: 0 0 10px 0;
+  }
+}
+
+.results, .congrats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(22, 22, 22, 0.8);
+  height: 700px;
+  text-align: center;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 0 40px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1210px) {
+  .congrats {
+    height: 650px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .results, .congrats {
+    height: 350px;
+    padding: 10px;
+  }
+}
+
+.results h1 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.results p {
+  font-size: 24px;
+}
+
+.btn_container {
+  width: 100%;
+}
+
+.next_btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  border: 1px solid #666666;
+  border-radius: 5px;
+  background-color: #00b5b6;
+  outline: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .next_btn {
+    margin-bottom: 10px;
+  }
+}
+
+.next_btn span {
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 767px) {
+  .next_btn span {
+    font-size: 20px;
+  }
+}
+
+.disabled {
+  cursor: default;
+  background-color: rgba(22, 22, 22, 0.8);
+}
+
+.toggle-play-button {
+  background-color: red !important;
+}
+
+.rhap_container {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.rhap_time {
+  color: #fff;
+}
+
+@media only screen and (max-width: 767px) {
+  .rhap_time {
+    font-size: 12px;
+  }
+}
+
+.rhap_progress-section {
+  margin-left: 20px;
+}
+
+.rhap_horizontal-reverse {
+  padding: 0;
+}
+
+.rhap_controls-section {
+  flex: 0 1 150px;
+}
+
+@media only screen and (max-width: 767px) {
+  .rhap_controls-section {
+    flex: 0 1 100px;
+  }
+}
+
+.rhap_progress-filled,
+.rhap_progress-indicator,
+.rhap_volume-indicator {
+  background-color: #00b5b6;
+}
+
+.rhap_play-pause-button,
+.rhap_volume-button {
+  color: #00b5b6;
+}
+
+.rhap_play-pause-button {
+  outline: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .rhap_main-controls-button {
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: 7px;
+  }
+}
+
+.rhap_volume-container {
+  display: flex;
+  align-items: center;
+  flex: 0 1 100px;
+}
+
+.rhap_volume-bar,
+.rhap_progress-bar {
+  background-color: #ccc;
+}
+
+.rhap_volume-controls {
+  flex: 0 1 100px;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .rhap_volume-controls {
+    flex: 0 1 70px;
+  }
+}
+
+.rhap_progress-container {
+  padding: 0 5px 0 5px;
+}
+
+@media only screen and (max-width: 1210px) {
+  .certificate {
+    width: 100%;
+  }
+  
+  .certificate img {
+    width: 100%;
+  }
+}
