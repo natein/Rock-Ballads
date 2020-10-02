@@ -1,4 +1,4 @@
-# songbird
+# RockBallads
 ## Application for guessing rock ballads
 ### deploy: 
 https://natein-songbird.netlify.app/
@@ -16,8 +16,3 @@ https://natein-songbird.netlify.app/
 #### development:
   -  eslint (standard CRA plugins)
   -  prop-types
-  
-
-
-  
-
